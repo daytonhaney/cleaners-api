@@ -3,11 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
     <title>Add Employee</title>
+    
 </head>
 <body>
-    <h1>Add a New Employee</h1>
-    <form action="/add_employee" method="POST">
+    <div class-"container">
+    <h1>Add New Employee</h1>
+    <form action="/add-employee" method="POST">
         <label for="first_name">First Name:</label>
         <input type="text" id="first_name" name="first_name" required><br><br>
         <label for="last_name">Last Name:</label>
@@ -24,9 +27,8 @@
         <input type="number" id="salary" name="salary" required><br><br>
         <label for="department">Department:</label>
         <input type="text" id="department" name="department" required><br><br>
-        <button type="submit">Submit</button>
+        <button type="submit">Submit</button> 
     </form>
-    <br>
-    <a href="{{ url_for('index') }}">Home</a>
+    </div>
 </body>
 </html>

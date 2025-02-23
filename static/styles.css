@@ -1,0 +1,153 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f4f4f4;
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+input {
+    width: 100%;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #007bff;
+    text-align: center;
+    line-height: 1.5;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+.home-button {
+    margin-top: 20px;
+    display: block;
+    text-decoration: none;
+    background-color: #28a745;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    width: 100px;
+    text-align: center;
+}
+
+.home-button:hover {
+    background-color: #218838;
+}
+
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+
+ .btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.btn:hover {
+    background-color: #0056b3;
+}
+
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+.employee-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.employee-table th, .employee-table td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+}
+
+.employee-table th {
+    background-color: #28a745;
+    color: white;
+    text-align: center;
+}
+
+.employee-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+.employee-table tr:hover {
+    background-color: #f1f1f1;
+}
+
+.home-button {
+    display: block;
+    text-decoration: none;
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    margin-top: 20px;
+    border-radius: 5px;
+    width: 200px;
+    margin: 20px auto 0;
+}
+
+.home-button:hover {
+    background-color: #0056b3;
+}

@@ -3,54 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Welcome to IO Cleaners</title>
-    <style>
-        /* Center the body content vertically and horizontally */
-        body {
-            font-family: Arial, sans-serif;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh; /* Make the body take the full viewport height */
-            margin: 0; /* Remove default margin */
-            background-color: #f4f4f9; /* Light background color */
-        }
-
-        .container {
-            text-align: center; /* Center the text inside the container */
-            padding: 20px;
-            border-radius: 8px;
-            background-color: white;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        button {
-            padding: 10px 20px;
-            margin-top: 20px;
-            background-color: #4CAF50; /* Green background */
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            font-size: 16px;
-        }
-
-        button:hover {
-            background-color: #45a049; /* Darker green on hover */
-        }
-
-        a {
-            text-decoration: none;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css')}}"
 </head>
 <body>
 
     <div class="container">
         <h1>Welcome to IO Cleaners!</h1>
-        <p>Click button below to add a new employee</p>
+        <p></p>
         <a href="{{ url_for('add_employee') }}">
             <button>Add Employee</button>
+        </a>
+        <a href="{{ url_for('view_employee')}}">
+            <button>View Employees</button>
         </a>
     </div>
 

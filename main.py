@@ -4,8 +4,7 @@ import psycopg2
 from dotenv import load_dotenv
 
 load_dotenv()
-
-
+url = os.getenv("DATABASE_URL")
 app = Flask(__name__, template_folder='templates')
 url = os.getenv("DATABASE_URL")
 connection = psycopg2.connect(url)
@@ -28,16 +27,15 @@ def get_user(user_id):
         user_data["extra"]=extra
     return jsonify(user_data),200
 
-   
 @app.route('/')
 def index():
-    return render_template('index.html')  # Landing page
+    """Landing page
+    """
+    return render_template('index.html')
 
-# Route to handle both GET and POST for adding an employee
 @app.route('/add-employee', methods=['GET', 'POST'])
 def add_employee():
-    if request.method == 'POST':  # Handle form submission
-        # Get data from form fields
+    if request.method == 'POST':
         first_name = request.form['first_name']
         last_name = request.form['last_name']
         email = request.form['email']
@@ -47,24 +45,27 @@ def add_employee():
         salary = float(request.form['salary'])
         department = request.form['department']
 
-        # Connect to the database and insert data
-        conn = psycopg2.connect(DATABASE_URL)
+        conn = psycopg2.connect(url)
         cursor = conn.cursor()
-
         cursor.execute("""
             INSERT INTO employees (first_name, last_name, email, phone, hire_date, job_title, salary, department)
             VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
         """, (first_name, last_name, email, phone, hire_date, job_title, salary, department))
-
-        # Commit and close the connection
         conn.commit()
-        cursor.close()
         conn.close()
 
-        return redirect(url_for('index'))  # Redirect back to the landing page after success
+        return redirect(url_for('index'))
+    return render_template('add-employee.html')
 
-    # Handle GET request (just show the form)
-    return render_template('add-employee.html')  # Show the form when GET is called
+@app.route('/view-employees')
+def view_employee():
+    conn = db_connection()
+    cur = conn.cursor()
+    cur.execute("select * from employees")
+    employees = cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template("view-employees.html",employees=employees)
 
 if __name__ == '__main__':
     app.run(debug=True)

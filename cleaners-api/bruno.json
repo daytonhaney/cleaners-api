@@ -1,0 +1,15 @@
+{
+  "version": "1",
+  "name": "cleaners-api",
+  "type": "collection",
+  "ignore": [
+    "node_modules",
+    ".git"
+  ],
+  "size": 0,
+  "filesCount": 0,
+  "presets": {
+    "requestType": "http",
+    "requestUrl": "http://127.0.0.1:5000/create-user"
+  }
+}

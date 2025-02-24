@@ -2,6 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for, jsonify
 import os 
 import psycopg2
 from dotenv import load_dotenv
+from db.database import customers_table
 
 load_dotenv()
 url = os.getenv("DATABASE_URL")
@@ -9,6 +10,7 @@ app = Flask(__name__, template_folder='templates')
 url = os.getenv("DATABASE_URL")
 connection = psycopg2.connect(url)
 
+cx_table = customers_table()
 
 def db_connection():
     conn = psycopg2.connect(url)
@@ -49,8 +51,8 @@ def add_employee():
         cursor = conn.cursor()
         cursor.execute("""
             INSERT INTO employees (first_name, last_name, email, phone, hire_date, job_title, salary, department)
-            VALUES (%s, %s, %s, %s, %s, %s, %s, %s)
-        """, (first_name, last_name, email, phone, hire_date, job_title, salary, department))
+            VALUES (%s, %s, %s, %s, %s, %s, %s, %s) """, 
+                       (first_name, last_name, email, phone, hire_date, job_title, salary, department))
         conn.commit()
         conn.close()
 
@@ -66,6 +68,33 @@ def view_employee():
     cur.close()
     conn.close()
     return render_template("view-employees.html",employees=employees)
+
+@app.route('/view-customers',methods=['GET'])
+def view_customers():
+    conn = db_connection()
+    cur = conn.cursor()
+    cur.execute("select * from customers")
+    customers = cur.fetchall()
+    cur.close()
+    conn.close()
+    return render_template("view-customers.html",customers=customers)
+
+@app.route('/new-jobs',methods=['GET'])
+def new_jobs():
+    return render_template("new-jobs.html")
+
+
+@app.route('/completed-jobs',methods=['GET'])
+def completed_jobs():
+    return render_template("completed-jobs.html")
+
+@app.route('/equipment',methods=['GET'])
+def equipment():
+    return render_template("equipment.html")
+
+
+
+
 
 if __name__ == '__main__':
     app.run(debug=True)

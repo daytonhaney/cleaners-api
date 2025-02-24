@@ -2,24 +2,44 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="description" content="IO Cleaners (honeypot)">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Welcome to IO Cleaners</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css')}}"
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css')}}">
 </head>
 <body>
 
     <div class="container">
-        <h1>Welcome to IO Cleaners!</h1>
-        <p></p>
-        <a href="{{ url_for('add_employee') }}">
-            <button>Add Employee</button>
-        </a>
-        <a href="{{ url_for('view_employee')}}">
-            <button>View Employees</button>
-        </a>
+        <h1>Welcome to IO Cleaners</h1>
+        <p>Management Portal</p>
+        
+        <div class="button-container">
+            <div class="column">
+                <a href="{{ url_for('add_employee') }}">
+                    <button>Add Employee</button>
+                </a>
+                <a href="{{ url_for('view_employee')}}">
+                    <button>View Employees</button>
+                </a>
+                <a href="{{ url_for('view_customers') }}">
+                    <button>View Customers</button>
+                </a>
+            </div>
+
+            <div class="column">
+                <a href="{{ url_for('new_jobs') }}">
+                    <button>New Job Order</button>
+                </a>
+                <a href="{{ url_for('completed_jobs') }}">
+                    <button>Completed Job Orders</button>
+                </a>
+                <a href="{{ url_for('equipment') }}">
+                    <button>Equipment</button>
+                </a>
+            </div>
+        </div>
     </div>
 
 </body>
 </html>
-

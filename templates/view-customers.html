@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Customers</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Customer List</h1>
+        <table class="customers-table">
+            <thead>
+                <tr>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Email</th>
+                    <th>Amount Paid</th>
+                    <th>Date</th>
+                    <th>Address</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for employee in employees %}
+                <tr>
+                    <td>{{ employee[1] }}</td>
+                    <td>{{ employee[2] }}</td> 
+                    <td>{{ employee[3] }}</td> 
+                    <td>{{ employee[4] }}</td> 
+                    <td>{{ employee[5] }}</td> 
+                    <td>{{ employee[6] }}</td> 
+                    <td>{{ employee[7] }}</td> 
+                    <td>{{ employee[8] }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        <a href="/" class="home-button">Back to Home</a>
+    </div>
+</body>
+</html>
+
